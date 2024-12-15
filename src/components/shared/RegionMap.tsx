@@ -5,7 +5,6 @@ import WorldMap from '@/assets/maps/world-countries-sans-antarctica.json'
 import shadeColor from '@/utils/shadeColor'
 import { useAppSelector } from '@/store'
 import { Tooltip as ReactTooltip } from 'react-tooltip'
-import { theme } from 'twin.macro'
 import type { Dispatch, SetStateAction } from 'react'
 
 type MapDataProp = {
@@ -30,8 +29,6 @@ type MapProps = Omit<RegionMapProps, 'valueSuffix' | 'valuePrefix'> & {
 type MapChartProps = MapProps & {
     setTooltipContent: Dispatch<SetStateAction<string>>
 }
-
-const twColor: Record<string, string> = theme`colors`
 
 const geoUrl = WorldMap
 const hoverPercentage = -10
@@ -95,6 +92,12 @@ const MapChart = (props: MapChartProps) => {
 
     const mode = useAppSelector((state) => state.theme.mode)
 
+    // Define colors directly in the code instead of using `twColor`
+    const darkGray = '#6B7280'
+    const lightGray = '#D1D5DB'
+    const strokeDarkGray = '#4B5563'
+    const strokeLightGray = '#E5E7EB'
+
     return (
         <ComposableMap
             style={{ transform: 'translateY(20px)' }}
@@ -114,14 +117,12 @@ const MapChart = (props: MapChartProps) => {
                                 fill={getHighlightedRegion(
                                     geoName,
                                     data,
-                                    mode === MODE_DARK
-                                        ? twColor.gray['500']
-                                        : twColor.gray['100']
+                                    mode === MODE_DARK ? darkGray : lightGray
                                 )}
                                 stroke={
                                     mode === MODE_DARK
-                                        ? twColor.gray['600']
-                                        : twColor.gray['300']
+                                        ? strokeDarkGray
+                                        : strokeLightGray
                                 }
                                 style={{
                                     hover: {
@@ -129,8 +130,8 @@ const MapChart = (props: MapChartProps) => {
                                             geoName,
                                             data,
                                             mode === MODE_DARK
-                                                ? twColor.gray['500']
-                                                : twColor.gray['100']
+                                                ? darkGray
+                                                : lightGray
                                         ),
                                         outline: 'none',
                                     },

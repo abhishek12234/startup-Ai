@@ -1,22 +1,18 @@
-import { theme } from 'twin.macro'
+export const COLOR_1 = '#4F46E5' // Indigo 600
+export const COLOR_2 = '#3B82F6' // Blue 500
+export const COLOR_3 = '#10B981' // Emerald 500
+export const COLOR_4 = '#F59E0B' // Amber 500
+export const COLOR_5 = '#EF4444' // Red 500
+export const COLOR_6 = '#8B5CF6' // Purple 500
+export const COLOR_7 = '#06B6D4' // Cyan 500
 
-const twColor: Record<string, string> = theme`colors`
-
-export const COLOR_1 = twColor.indigo['600']
-export const COLOR_2 = twColor.blue['500']
-export const COLOR_3 = twColor.emerald['500']
-export const COLOR_4 = twColor.amber['500']
-export const COLOR_5 = twColor.red['500']
-export const COLOR_6 = twColor.purple['500']
-export const COLOR_7 = twColor.cyan['500']
-
-export const COLOR_1_LIGHT = twColor.indigo['100']
-export const COLOR_2_LIGHT = twColor.blue['100']
-export const COLOR_3_LIGHT = twColor.emerald['100']
-export const COLOR_4_LIGHT = twColor.amber['100']
-export const COLOR_5_LIGHT = twColor.red['100']
-export const COLOR_6_LIGHT = twColor.purple['100']
-export const COLOR_7_LIGHT = twColor.cyan['100']
+export const COLOR_1_LIGHT = '#E0E7FF' // Indigo 100
+export const COLOR_2_LIGHT = '#BFDBFE' // Blue 100
+export const COLOR_3_LIGHT = '#D1FAE5' // Emerald 100
+export const COLOR_4_LIGHT = '#FDE68A' // Amber 100
+export const COLOR_5_LIGHT = '#FECACA' // Red 100
+export const COLOR_6_LIGHT = '#D8B4FE' // Purple 100
+export const COLOR_7_LIGHT = '#B2F1F1' // Cyan 100
 
 export const COLORS = [
     COLOR_1,
