@@ -19,7 +19,7 @@ const commonRoutes = [
     {
         key: 'home',
         path: `${APP_PREFIX_PATH}/home`,
-        component: lazy(() => import('@/views/LandingPage')),
+        component: lazy(() => import('../../views/landingPage')),
         authority: [],
     },
     {
