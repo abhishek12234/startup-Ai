@@ -1,0 +1,224 @@
+
+.about-two {
+    position: relative;
+    display: block;
+    padding: 0px 0px 120px;
+    z-index: 1;
+}
+
+.about-two .row {
+    align-items: center;
+}
+
+.about-two__img {
+    position: relative;
+    display: block;
+    margin-left: -100px;
+    margin-right: 50px;
+}
+
+.about-two__img1 {
+    position: relative;
+    display: block;
+}
+
+.about-two__img1 .inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.about-two__img1 img {
+    width: 100%;
+}
+
+.about-two__img1::before {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    bottom: 35px;
+    right: -7px;
+    background: var(--thm-black);
+    content: "";
+    z-index: -1;
+}
+
+.about-two__img2 {
+    position: absolute;
+    bottom: 135px;
+    right: -260px;
+    z-index: 2;
+}
+
+.about-two__img2::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(var(--thm-black-rgb), 0.3);
+    content: "";
+}
+
+.about-two__img2 img {
+    width: 80%;
+}
+
+.about-two__video-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.about-two__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    background: var(--thm-white);
+    border-radius: 50%;
+    color: var(--thm-black);
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.about-two__icon::before,
+.about-two__icon::after {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: .9s;
+    content: "";
+    box-shadow: 0 0 0 0 rgb(255 255 255 / 60%);
+    animation: ripple 3s infinite;
+    transition: all .4s ease;
+}
+
+.about-two__icon::after {
+    animation-delay: .6s;
+}
+
+.about-two__icon span {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.about-two__content {
+    position: relative;
+    display: block;
+    margin-left: 20px;
+}
+
+.about-two__content .sec-title {
+    padding-bottom: 28px;
+}
+
+.about-two__content-text {
+    position: relative;
+    display: block;
+}
+
+.about-two__content-text p {
+    margin: 0;
+}
+
+.about-two__content-list {
+    position: relative;
+    display: block;
+    padding-left: 240px;
+    margin-top: 45px;
+}
+
+.about-two__content-list ul {
+    position: relative;
+    display: block;
+}
+
+.about-two__content-list ul li {
+    position: relative;
+    display: block;
+    max-width: 290px;
+    width: 100%;
+    background: var(--thm-gray-bg);
+    padding: 8px 20px 7px;
+    margin-bottom: 15px;
+}
+
+.about-two__content-list ul li:last-child {
+    margin-bottom: 0;
+}
+
+.about-two__content-list ul li p {
+    color: var(--thm-black);
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+}
+
+.about-two__content-list ul li p span {
+    position: relative;
+    display: inline-block;
+    color: var(--thm-primary);
+    font-size: 15px;
+    line-height: 15px;
+    margin-right: 4px;
+}
+
+.about-two__content-bottom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 88px;
+}
+
+.about-two__content-bottom .author-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.about-two__content-bottom .author-box .img-box {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--thm-primary);
+}
+
+.about-two__content-bottom .author-box .img-box img {
+    width: 100%;
+}
+
+.about-two__content-bottom .author-box .signature {
+    position: relative;
+    display: block;
+    margin-left: 30px;
+    flex: 1 1;
+}
+
+.about-two__content-bottom .author-box .signature img {
+    width: 100%;
+}
+
+.about-two__content-bottom .btn-box {
+    position: relative;
+    display: block;
+    margin-left: 110px;
+}

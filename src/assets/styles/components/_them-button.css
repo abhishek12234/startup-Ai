@@ -1,0 +1,99 @@
+:root {
+    --thm-primary: #e90b35;
+    --thm-primary-rgb: 233, 11, 53;
+    --thm-white: #ffffff;
+    --thm-white-rgb: 255, 255, 255;
+    --thm-black: #11161f;
+    --thm-black-rgb: 17, 22, 31;
+    --thm-gray: #8b8b8b;
+    --thm-gray-rgb: 118, 118, 118;
+    --thm-gray-bg: #f5f5f8;
+    --thm-gray-bg-rgb: 245, 245, 248;
+    --thm-font-size: 16px;
+    --thm-font-weight: 400;
+    --thm-white-bg: #ffffff;
+    --thm-heading-font-weight: 700;
+    --thm-blue: #0d6efd;
+    --thm-indigo: #6610f2;
+    --thm-purple: #6f42c1;
+    --thm-pink: #d63384;
+    --thm-red: #dc3545;
+    --thm-orange: #fd7e14;
+    --thm-yellow: #ffc107;
+    --thm-green: #198754;
+    --thm-teal: #20c997;
+    --thm-cyan: #0dcaf0;
+}
+.thm-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    color: var(--thm-white);
+    font-size: 14px;
+    line-height: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.018em;
+    font-family: var(--thm-font);
+    border-radius: 0px;
+    transition: all 0.3s linear;
+    z-index: 2;
+}
+
+.thm-btn:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    opacity: 1;
+    transform: scaleX(1);
+    transition-duration: 800ms;
+    background-color: var(--thm-primary);
+    z-index: -1;
+}
+
+.thm-btn:hover:after {
+    transform: scaleX(0);
+    transition-duration: 1500ms;
+}
+
+.thm-btn:before {
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    right: -50px;
+    content: "";
+    background: var(--thm-black);
+    transform: translateY(100%);
+    border-radius: 0%;
+    transition-duration: 800ms;
+    z-index: 1;
+    bottom: 0;
+}
+
+.thm-btn:hover:before {
+    left: 0px;
+    right: 0px;
+    transform: translateX(0);
+}
+
+.thm-btn .txt {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.thm-btn:hover,
+.thm-btn:focus {
+    color: var(--thm-white);
+    box-shadow: 2px 2px 20px 0px rgba(var(--thm-black-rgb), 0.1);
+}
