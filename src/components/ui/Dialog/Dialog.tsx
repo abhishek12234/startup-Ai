@@ -2,7 +2,6 @@ import Modal from 'react-modal'
 import classNames from 'classnames'
 import CloseButton from '../CloseButton'
 import { motion } from 'framer-motion'
-import { theme } from 'twin.macro'
 import useWindowSize from '../hooks/useWindowSize'
 import type ReactModal from 'react-modal'
 import type { MouseEvent } from 'react'
@@ -59,8 +58,7 @@ const Dialog = (props: DialogProps) => {
 
         if (
             typeof currentSize.width !== 'undefined' &&
-            currentSize.width <=
-                parseInt(theme`screens.sm`.split(/ /)[0].replace(/[^\d]/g, ''))
+            currentSize.width <= 640 // Tailwind 'sm' breakpoint (640px)
         ) {
             contentStyle.content.width = 'auto'
         }
