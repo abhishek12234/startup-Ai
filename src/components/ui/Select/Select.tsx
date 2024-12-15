@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import ReactSelect from 'react-select'
 import CreatableSelect from 'react-select/creatable'
 import AsyncSelect from 'react-select/async'
-import tw, { theme } from 'twin.macro'
 import isEmpty from 'lodash/isEmpty'
 import get from 'lodash/get'
 import { useConfig } from '../ConfigProvider'
@@ -118,10 +117,7 @@ function _Select<
     Option,
     IsMulti extends boolean = false,
     Group extends GroupBase<Option> = GroupBase<Option>
->(
-    props: SelectProps<Option, IsMulti, Group>,
-    ref: ForwardedRef<ReactSelect | CreatableSelect | AsyncSelect>
-) {
+>(props: SelectProps<Option, IsMulti, Group>, ref: ForwardedRef<ReactSelect | CreatableSelect | AsyncSelect>) {
     const {
         size,
         style,
@@ -139,8 +135,19 @@ function _Select<
 
     const selectSize = size || inputGroupSize || formControlSize || controlSize
 
-    const twColor: Record<string, string> = theme`colors`
-    const twHeight = theme`height`
+    // Replace twColor and twHeight with equivalent colors and heights
+    const twColor = {
+        red: { 500: '#EF4444' },
+        gray: { 600: '#4B5563', 300: '#D1D5DB', 700: '#374151' },
+        blue: { 50: '#EFF6FF', 100: '#DBEAFE' },
+        // Add other colors as necessary
+    }
+    const twHeight = {
+        sm: '32px',
+        md: '40px',
+        lg: '48px',
+        // Add other sizes as necessary
+    }
 
     let isInvalid = false
 
@@ -185,7 +192,7 @@ function _Select<
                             cursor: 'pointer',
                         },
                         boxShadow: getBoxShadow(state),
-                        borderRadius: tw`rounded-md`.borderRadius,
+                        borderRadius: '8px', // equivalent of tw`rounded-md`
                         ...(isInvalid
                             ? { borderColor: twColor.red['500'] }
                             : {}),
@@ -221,9 +228,9 @@ function _Select<
                         mode === 'dark'
                             ? twColor.gray['600']
                             : twColor.gray['300'],
-                    primary25: twColor[themeColor]['50'],
-                    primary50: twColor[themeColor]['100'],
-                    primary: twColor[themeColor][primaryColorLevel],
+                    primary25: twColor.gray['600'],
+                    primary50: twColor.blue['100'],
+                    primary: twColor.blue["100"],
                 },
             })}
             themeColor={`${themeColor}-${primaryColorLevel}`}
@@ -245,10 +252,6 @@ const Select = forwardRef(_Select) as <
     Option,
     IsMulti extends boolean = false,
     Group extends GroupBase<Option> = GroupBase<Option>
->(
-    props: SelectProps<Option, IsMulti, Group> & {
-        ref?: ForwardedRef<ReactSelect | CreatableSelect | AsyncSelect>
-    }
-) => ReturnType<typeof _Select>
+>(props: SelectProps<Option, IsMulti, Group> & { ref?: ForwardedRef<ReactSelect | CreatableSelect | AsyncSelect> }) => ReturnType<typeof _Select>
 
 export default Select
