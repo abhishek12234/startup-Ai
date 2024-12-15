@@ -21,6 +21,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'build'
+    outDir: 'build',
+    commonjsOptions: { transformMixedEsModules: true } 
   }
 });
