@@ -1,26 +1,15 @@
 import { useEffect, useState } from 'react'
-import { theme } from 'twin.macro'
 
-const twBreakpoint = theme<{
-    xs: string
-    sm: string
-    md: string
-    lg: string
-    xl: string
-    '2xl': string
-}>`screens`
+const breakpointInt = (str = '') => parseInt(str.replace('px', ''), 10)
 
-const breakpointInt = (str = '') => {
-    return parseInt(str.replace('px', ''))
-}
-
+// Define breakpoints manually (make sure they match your `tailwind.config.js` settings)
 const breakpoint = {
-    '2xl': breakpointInt(twBreakpoint['2xl']), // 1536
-    xl: breakpointInt(twBreakpoint.xl), // 1280
-    lg: breakpointInt(twBreakpoint.lg), // 1024
-    md: breakpointInt(twBreakpoint.md), // 768
-    sm: breakpointInt(twBreakpoint.sm), // 640
-    xs: breakpointInt(twBreakpoint.xs), // 576
+    '2xl': 1536,
+    xl: 1280,
+    lg: 1024,
+    md: 768,
+    sm: 640,
+    xs: 576,
 }
 
 const useResponsive = () => {
@@ -47,16 +36,12 @@ const useResponsive = () => {
 
     const [responsive, setResponsive] = useState(getResponsiveState())
 
-    const resizeHandler = () => {
-        const responsiveState = getResponsiveState()
-        setResponsive(responsiveState)
-    }
+    const resizeHandler = () => setResponsive(getResponsiveState())
 
     useEffect(() => {
         window.addEventListener('resize', resizeHandler)
         return () => window.removeEventListener('resize', resizeHandler)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [responsive.windowWidth])
+    }, [])
 
     return responsive
 }
