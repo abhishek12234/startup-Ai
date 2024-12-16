@@ -14,7 +14,7 @@ export default defineConfig({
       ]
     }
   }),
-  dynamicImport(),commonjs(),vitePluginRequire()],
+  dynamicImport(),commonjs(),vitePluginRequire.default()],
   assetsInclude: ['**/*.md'],
 
   resolve: {
