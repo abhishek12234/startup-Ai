@@ -26,6 +26,7 @@ export type SignUpCredential = {
     age:number,
     profession:string
     email: string
+    phone:number
     password: string
 }
 

@@ -20,6 +20,7 @@ type SignUpFormSchema = {
     lastName: string
     age: number
     profession: string
+    phone:number
     password: string
     email: string
 }
@@ -35,6 +36,9 @@ const validationSchema = Yup.object().shape({
             (value: any) => value >= 10 && value <= 99,
         )
         .required('Please enter your age'),
+    phone: Yup.number()
+        .typeError('phone must be number'),
+    profession: Yup.string().required('Please enter your profession'),    
     email: Yup.string()
         .email('Invalid email')
         .required('Please enter your email'),
@@ -62,6 +66,7 @@ const SignUpForm = (props: SignUpFormProps) => {
             age,
             profession,
             password,
+            phone,
             email,
         } = values
         setSubmitting(true)
@@ -69,6 +74,7 @@ const SignUpForm = (props: SignUpFormProps) => {
             first_name,
             last_name,
             age,
+            phone,
             profession,
             password,
             email,
@@ -94,6 +100,7 @@ const SignUpForm = (props: SignUpFormProps) => {
                     lastName: '',
                     age: 0,
                     profession: '',
+                    phone:0,
                     password: '',
                     confirmPassword: '',
                     email: ''
@@ -184,6 +191,20 @@ const SignUpForm = (props: SignUpFormProps) => {
                                         />
                                     </FormItem>
                                 </div>
+                                <FormItem
+                                    label="Phone Number"
+                                    invalid={errors.phone && touched.phone}
+                                    errorMessage={errors.phone}
+                                    className="!mb-5"
+                                >
+                                    <Field
+                                        
+                                        autoComplete="off"
+                                        name="phone"
+                                        placeholder="phone"
+                                        component={Input}
+                                    />
+                                </FormItem>
                                 <FormItem
                                     label="Email"
                                     invalid={errors.email && touched.email}
