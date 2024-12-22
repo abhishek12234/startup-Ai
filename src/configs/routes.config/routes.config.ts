@@ -7,13 +7,13 @@ const commonRoutes = [
     {
         key: 'courses',
         path: `${APP_PREFIX_PATH}/all_courses`,
-        component: lazy(() => import('@/views/Courses/AllCourses')),
+        component: lazy(() => import('@/views/Courses/courses-all/AllCourses')),
         authority: [],
     },
     {
         key: 'course_detail',
         path: `${APP_PREFIX_PATH}/all_courses/course_detail/:courseId`,
-        component: lazy(() => import('@/views/Courses/AllCourseDetail')),
+        component: lazy(() => import('@/views/Courses/courses-all/AllCourseDetail')),
         authority: [],
     },
     {

@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import NotFound from './NotFound'
+import NotFound from '../components/NotFound'
 import reducer, {
   useAppSelector,
   getCoursesData,
@@ -7,7 +7,7 @@ import reducer, {
   getCourseDetail,
   getPurchasedCourseData
 } from '@/store'
-import CourseListing from './components/CourseListing'
+import CourseListing from '../components/CourseListing'
 const MyCourses = () => {
   const dispatch = useAppDispatch()
       const purchaseCoursesData = useAppSelector((state) => state.courses.purchasesCoursesData)

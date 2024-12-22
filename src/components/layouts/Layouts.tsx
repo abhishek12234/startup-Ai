@@ -10,10 +10,10 @@ import {
     LAYOUT_TYPE_BLANK,
     LAYOUT_TYPE_MAIN,
 } from '@/constants/theme.constant'
-import useAuth from '@/utils/hooks/useAuth'
 import useDirection from '@/utils/hooks/useDirection'
 import useLocale from '@/utils/hooks/useLocale'
-import reducer,{useAppDispatch,getCoursesData,getPurchasedCourseData } from '@/store'
+import useAuth from '@/utils/hooks/useAuth'
+
 const layouts = {
     [LAYOUT_TYPE_CLASSIC]: lazy(() => import('./ClassicLayout')),
     [LAYOUT_TYPE_MODERN]: lazy(() => import('./ModernLayout')),
@@ -27,60 +27,29 @@ const layouts = {
 const Layout = () => {
     const layoutType = useAppSelector((state) => state.theme.layout.type)
     const { authenticated } = useAuth()
-    const dispatch = useAppDispatch()
+    const courseLoading=useAppSelector((state)=>state.courses.loading)
+    
+
     useDirection()
     useLocale()
 
-    const coursesdata = useAppSelector((state) => state.courses.coursesData)
-    const purchasedCourses=useAppSelector((state)=> state.courses.purchasesCoursesData)
-    useEffect(() => {
-        if (coursesdata && coursesdata.length==0){
-        fetchData()
-        }
-    }, [])
-    useEffect(() => {
-        console.log(purchasedCourses,"purasdkfjh")
-    }, [purchasedCourses])
-
-    
-    useEffect(() => {
-        if (authenticated && purchasedCourses && purchasedCourses.length==0){
-            fetchPurchaseCourseData()
-           
-        }
-    }, [authenticated])
-
-    const fetchData = () => {
-        dispatch(getCoursesData())
-    }
-    
-    const fetchPurchaseCourseData=()=>{
-        dispatch(getPurchasedCourseData())
-    }
-
-    // Move useRef inside the component
-    const containerRef = useRef(null)
 
     const AppLayout = useMemo(() => {
-       
-            return layouts[layoutType]
-     
-    }, [layoutType, authenticated])
+       return layouts[layoutType]
+    }, [layoutType])
 
     return (
-        <Suspense
-            fallback={
-                <div className="flex flex-auto flex-col h-[100vh]">
+        <Suspense fallback={ 
+             <div className="fixed inset-0 flex items-center justify-center bg-white z-[99999]">
                     <Loading loading={true} />
-                </div>
-            }
-        >
-          
-                    <AppLayout />
-         
-       
+             </div>}>
+
+             <Loading loading={courseLoading} className="fixed inset-0 flex items-center justify-center bg-white z-[99999]" />
+             <AppLayout />
+             
         </Suspense>
-    )
+    );
+    
 }
 
 export default Layout

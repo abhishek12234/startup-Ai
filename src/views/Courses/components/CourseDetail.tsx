@@ -40,6 +40,7 @@ const CourseDetail = ({ courseDetail, isPurchased,joinCourse }: any) => {
             navigate(`/sign-in`)
         }
     }
+    
 
     const tabs = [
         { name: 'Overview', tab: 'overview' },

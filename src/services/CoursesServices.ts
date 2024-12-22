@@ -2,7 +2,7 @@ import ApiService from './ApiService'
 
 export async function apiGetCourses<T>() {
     return ApiService.fetchData<T>({
-        url: 'courses',
+        url: 'courses/',
         method: 'get',
     })
 }
@@ -20,7 +20,7 @@ export async function apiGetPurchasedCourses<T>() {
 }
 export async function apiGetPurchasedCourseDetail<T>(courseId: string) {
     return ApiService.fetchData<T>({
-        url: `coursepurchase/${courseId}`, // Assuming the API follows RESTful conventions
+        url: `courses/user/${courseId}`, // Assuming the API follows RESTful conventions
         method: 'get',
     });
 }

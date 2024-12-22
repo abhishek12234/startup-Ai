@@ -49,5 +49,11 @@ export async function apiResetPassword(data: ResetPassword) {
     })
 }
 
+export async function apiGetCurrentUser() {
+    return ApiService.fetchData({
+        url:add_prefix+'/me',
+        method: 'get',
+    })
+}
 
 

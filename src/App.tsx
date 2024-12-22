@@ -33,7 +33,6 @@ function App() {
             <PersistGate loading={null} persistor={persistor}>
                 <BrowserRouter>
                     <Theme>
-                        
                         <Layout />
                         {larger.lg === true && <CustomCursor />}
                     </Theme>

@@ -1,23 +1,20 @@
 import { useLocation} from 'react-router-dom'
-import { useRef,useEffect } from 'react'
+import { useRef,useEffect ,useMemo} from 'react'
 import View from '@/views'
 import Layout from '../main-layout/Layout'
 import { APP_PREFIX_PATH } from '@/constants/route.constant'
 import AuthLayout from './AuthLayout'
 
-import { injectReducer } from '@/store'
-import useAuth from '@/utils/hooks/useAuth'
+import { injectReducer,useAppSelector } from '@/store'
+
+import Loading from '@/components/shared/Loading'
+
 
 
 const MainLayout = () => {
     const location = useLocation();
-    
-    const authenticated =useAuth()
-    
- 
-    
+    const courseLoading=useAppSelector((state)=>state.courses.loading)
 
-   
     const getLayoutSettings = (path:any) => {
         const dynamicLessonPathRegex = new RegExp(`${APP_PREFIX_PATH}/my_courses/course_detail/[^/]+/lesson/[^/]+`);
     
@@ -40,7 +37,8 @@ const MainLayout = () => {
 
     
     const { headerStyle, breadcrumbTitle,footerStyle} = getLayoutSettings(location.pathname);
-    console.log(headerStyle,)
+    
+
 
     return (
         (location.pathname ==`/sign-in` || location.pathname ==`/sign-up`)  ? (

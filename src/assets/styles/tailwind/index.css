@@ -16,6 +16,7 @@
     @apply text-gray-500 dark:text-gray-400 text-sm bg-[#fff] dark:bg-gray-900 leading-normal;
     -webkit-font-smoothing: antialiased;
     cursor: none;
+    position: relative;
    
     
    

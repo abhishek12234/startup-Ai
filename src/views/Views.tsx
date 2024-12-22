@@ -107,7 +107,13 @@ const AllRoutes = (props: AllRoutesProps) => {
 
 const Views = (props: ViewsProps) => {
     return (
-        <Suspense fallback={<Loading loading={true} />}>
+         <Suspense
+            fallback={
+                <div className="fixed inset-0 flex items-center justify-center bg-white z-[99999]">
+                    <Loading loading={true} />
+                </div>
+            }
+        >
             <AllRoutes {...props} />
         </Suspense>
     )

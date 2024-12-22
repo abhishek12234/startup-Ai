@@ -37,14 +37,6 @@ type GetCourseDetailResopnse=CourseObject
 
 export const SLICE_NAME = 'course_all'
 
-export const getCoursesData = createAsyncThunk(
-    SLICE_NAME + '/getCoursesData',
-    async () => {
-        const response = await apiGetCourses<GetCoursesDataResponse>()
-        
-        return response.data;
-    }
-)
 
 export const getCourseDetail = createAsyncThunk(
     SLICE_NAME + '/getCourseDetail',
@@ -86,14 +78,7 @@ const courseSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getCoursesData.fulfilled, (state, action) => {
-              
-                state.coursesData = action.payload
-                state.loading = false
-            })
-            .addCase(getCoursesData.pending, (state) => {
-                state.loading = true
-            })
+    
             .addCase(getCourseDetail.fulfilled, (state, action) => {
                 state.courseDetail = action.payload; // Store the fetched course detail
                 state.loading = false;

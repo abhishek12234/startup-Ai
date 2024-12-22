@@ -19,15 +19,21 @@ import storage from 'redux-persist/lib/storage'
 import { PERSIST_STORE_NAME } from '@/constants/app.constant'
 import rootReducer, { RootState, AsyncReducers } from './rootReducer'
 import RtkQueryService from '@/services/RtkQueryService'
+import { NavigateFunction } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
+type ThunkExtraArgument = {
+    navigate: NavigateFunction;
+  };
+  
 const middlewares: any[] = [RtkQueryService.middleware]
 
 const persistConfig = {
     key: PERSIST_STORE_NAME,
     keyPrefix: '',
     storage,
-    whitelist: ['auth', 'locale','scroll'],
+    whitelist: ['auth', 'locale'],
 }
 
 interface CustomStore extends Store<RootState, AnyAction> {

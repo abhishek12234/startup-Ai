@@ -14,7 +14,7 @@ import News from './components/News'
 
 const LandingPage = () => {
   return (
-    <>
+    <div className='overflow-hidden'>
      
         <Banner/>
         <Feature/>
@@ -27,7 +27,7 @@ const LandingPage = () => {
         <Faq/>
         <News/>
        
-    </>
+    </div>
   )
 }
 
